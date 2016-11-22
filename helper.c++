@@ -390,7 +390,7 @@ unsigned long ORFWise_coverage( map<string, CONTIG> &contigs_dictionary, const s
                 } else if(count_type==1) {
                    orfnames[itorf->subject] = static_cast<float>(coverage.numreads);
                 } else if(count_type==2){
-                   orfnames[itorf->subject] = (1E9/genome_equivalent)*(static_cast<float>(coverage.numreads)/static_cast<float>(coverage.substring_length));
+                   orfnames[itorf->subject] = (1E3/genome_equivalent)*(static_cast<float>(coverage.numreads)/static_cast<float>(coverage.substring_length));
                 }
               // std::cout << num_mappable_reads << "  " << coverage.numreads << "  " <<  match.subject << "  " << orfnames[match.subject] << std::endl;
            }
