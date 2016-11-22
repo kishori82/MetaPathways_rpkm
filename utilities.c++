@@ -14,6 +14,8 @@ void Options::print_usage(char *arg) {
              << "      : --o <outputfile> \n"\
              << "      : --m <multireads>  [OPTIONAL , default on]\n"\
              << "      : --status [shows status]\n"\
+             << "      : --type [rpkm[0]/count[1]/rpkg[2] default 0 ]\n"\
+             << "      : --geonme_equivalent [genome equivalent from rpkg]\n"
              << "      : --count  [shows counts]"\
              << std::endl;
 }
@@ -27,8 +29,11 @@ bool Options::SetOptions(int argc, char *argv[]) {
           print_usage(argv[0]);
           exit(0);
        }   
-       else if( strncmp(argv[i], "--read-count", strlen("--read-count")) == 0 ) {   
-          this->read_counts = true;
+       else if( strncmp(argv[i], "--type", strlen("--type")) == 0 ) {   
+          this->count_type = atoi(argv[++i]);
+       }   
+       else if( strncmp(argv[i], "--genome_equivalent", strlen("--genome_equivalent")) == 0 ) {   
+          this->genome_equivalent =  atof(argv[++i]);
        }   
        else if( strncmp(argv[i], "--stats", strlen("--stats")) == 0 ) {   
           this->stats_file = argv[++i];

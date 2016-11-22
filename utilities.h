@@ -7,6 +7,7 @@
 #include <vector>
 #include <string.h>
 #include <stdlib.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -29,6 +30,8 @@ struct Options {
     bool read_counts; // show counts not rpkm
     string reads_map_file_format; // aligner type BWA or BLAST, two SAM files or one
     
+    int count_type;
+    float genome_equivalent;   //genome equivanet from RPKG such as MicrobeSensus
     // Constructor with default settings 
     Options(){
        contigs_file = "";
@@ -44,6 +47,8 @@ struct Options {
        show_status = false;
        read_counts = false;
        reads_map_file_format = "sam-1";  
+       genome_equivalent = 1;
+       count_type = 0;
     };
     
     void print_usage( char *arg);

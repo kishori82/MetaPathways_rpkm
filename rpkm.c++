@@ -110,8 +110,11 @@ int main( int argc, char **argv ){
     unsigned long orf_length = 0;
     std::cout << "Computing ORF coverage ...";
     unsigned long _num_orfs;
+
+    std::cout << "equivalent " << options.genome_equivalent << std::endl;
+    
     _num_orfs = ORFWise_coverage(contigs_dictionary, options.orf_file, _all_orfnames,\
-                               genome_length,  orf_length, total_distinct_reads, options.read_counts, true);
+                               genome_length,  orf_length, total_distinct_reads, options.count_type, options.genome_equivalent, true);
 
 
 

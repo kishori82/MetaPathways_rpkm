@@ -103,6 +103,7 @@ typedef struct _RUN_STATS {
 typedef struct _COVERAGE {
    float coverage, numreads;
    unsigned int substring_length, uncovered_length;
+   float genome_equivalent;
 } COVERAGE;
 #endif //__RPKM_TYPE
 
