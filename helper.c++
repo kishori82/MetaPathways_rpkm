@@ -345,7 +345,9 @@ unsigned long ORFWise_coverage( map<string, CONTIG> &contigs_dictionary, const s
     // reads in all the orfs and associated to the contigs 
     std::cout << "Sorting through the reads...." ;
     for(int i =0; ; i++ )  {
+       //std::cout << match.subject << "  " << match.query << std::endl;
        if( !parser->nextline(match) )  break;
+
        if(show_status && i%10000==0) {
            std::cout << "\n\033[F\033[J";
        }
@@ -356,11 +358,7 @@ unsigned long ORFWise_coverage( map<string, CONTIG> &contigs_dictionary, const s
 
        orf_dictionary[match.query].push_back(match);
        _num_orfs += 1;
- //      std::cout << match.subject << "  " << match.query << std::endl;
-
      }
-     std::cout << "done" << std::endl;
-
      unsigned int maxReadLength = getMaxReadSize(orf_dictionary, contigs_dictionary); 
 
      int j = 0;

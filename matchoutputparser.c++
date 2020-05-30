@@ -74,7 +74,6 @@ bool SamFileParser::nextline(MATCH &match) {
 
      bool _success = false;
      while( std::getline(this->input, line ).good()) {
-        // std::cout << line << std::endl;
          if(matchString(line, skipPattern, true) ) continue;
 
          fields.clear();
@@ -82,11 +81,9 @@ bool SamFileParser::nextline(MATCH &match) {
 
          if(fields.size() < 9)  continue;
 
-/*
          if( matchString(std::string(fields[2]), skipStar, true)) { 
             this->num_unmapped_reads++; continue; 
          }
-*/
          _success = true;
          break;
      }  
@@ -99,7 +96,6 @@ bool SamFileParser::nextline(MATCH &match) {
         match.end =  match.start +  std::string(fields[9]).size();
         getMateInfo(static_cast<unsigned int>(atoi(fields[1])), match);
         //if(status==false) return false;
-
 
         //std::cout << match.query << "  " << match.mapped << " "  << match.parity << " " << match.orphan << " " << match.chimeric << " " << match.multi << "  " << fields[1] << std::endl;
 
@@ -134,10 +130,7 @@ bool GffFileParser::nextline(MATCH &match) {
      
      while( std::getline(this->input, line ).good() ) {
          split(line, fields, this->buf, '\t');
-      //   std::cout << line << std::endl;
-        // std::cout << "size " << fields.size() << std::endl;
          if(fields.size() < 9)  continue;
-         //std::cout << fields[3] << " - " << fields[4] << " " << _success <<std::endl;
          _success = true;
          break;
      }  

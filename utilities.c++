@@ -167,6 +167,7 @@ void split(const string  &strn, std::vector<char *> &v, char *buf, char d) {
   char *s1 = buf;
   v.clear();
   v.push_back(s1);
+
   while(*s1 != '\0') {
      if(*s1==d) { 
        *s1 = '\0';
